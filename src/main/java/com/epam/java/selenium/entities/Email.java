@@ -2,8 +2,9 @@ package com.epam.java.selenium.entities;
 
 public class Email {
 
-    private String subject = null;
-    private String to = null;
+    private String subject;
+    private String to;
+    private String body;
 
     public Email(String to, String subject, String body) {
         this.to = to;
@@ -35,5 +36,4 @@ public class Email {
         this.body = body;
     }
 
-    private String body = null;
 }

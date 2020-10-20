@@ -10,11 +10,9 @@ import static org.testng.Assert.*;
 
 public class DeleteMailTest extends BaseTest {
 
-    private HomePage homePage;
-
     @Test
     public void deleteMail() throws InterruptedException {
-        homePage = login();
+        login();
         Factory sentMailPageFactory = new SentMailPageFactory();
         MailPage sentMailPage = sentMailPageFactory.getMailPage(driver);
         WebElement mail = sentMailPage.getLatestMail();

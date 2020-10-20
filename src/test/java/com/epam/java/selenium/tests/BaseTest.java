@@ -4,6 +4,7 @@ import com.epam.java.selenium.driver.DriverSingleton;
 import com.epam.java.selenium.entities.User;
 import com.epam.java.selenium.pages.HomePage;
 import com.epam.java.selenium.pages.LoginPage;
+import com.epam.java.selenium.utils.PropertiesUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,10 +24,10 @@ public class BaseTest {
     @BeforeClass
     @Parameters({"env", "browser"})
     public void init(String env, String browser) throws IOException {
-        Properties envProp = new Properties();
-        envProp.load(this.getClass().getResourceAsStream("/" + env + ".properties"));
-        username = envProp.getProperty("username");
-        password = envProp.getProperty("password");
+//        Properties envProp = new Properties();
+//        envProp.load(this.getClass().getResourceAsStream("/" + env + ".properties"));
+        username = PropertiesUtil.getInstance(env).getProperty("username");
+        password = PropertiesUtil.getInstance(env).getProperty("password");
         driver = DriverSingleton.getDriver(env, browser);
         driver.get("http://mail.google.com");
     }

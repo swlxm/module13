@@ -1,6 +1,8 @@
 package com.epam.java.selenium.entities;
 
 public class User {
+    private String username = null;
+    private String password = null;
 
     public String getUsername() {
         return username;
@@ -18,6 +20,4 @@ public class User {
         this.password = password;
     }
 
-    private String username = null;
-    private String password = null;
 }

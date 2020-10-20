@@ -2,6 +2,7 @@ package com.epam.java.selenium.pages;
 
 import com.epam.java.selenium.entities.Email;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,8 +19,6 @@ public class HomePage {
     private By subjectBy = By.name("subjectbox");
     private By bodyBy = By.xpath("//div[@aria-label='Message Body']");
     private By closeBtnBy = By.xpath("//img[@alt='Close']");
-    private By inboxBy = By.linkText("Inbox");
-    private By sentBy = By.linkText("Sent");
     private By draftBy = By.linkText("Drafts");
     private By sendBy = By.xpath("//div[text()='Send']");
 
@@ -28,6 +27,7 @@ public class HomePage {
     }
 
     public void createDraftMail(Email email) throws InterruptedException {
+
         driver.findElement(composeBy).click();
         Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -49,17 +49,6 @@ public class HomePage {
         driver.findElement(bodyBy).sendKeys(email.getBody());
         driver.findElement(sendBy).click();
         Thread.sleep(1000*10);
-    }
-
-    public void openInboxPage() throws InterruptedException {
-        driver.findElement(inboxBy).click();
-        Thread.sleep(10*1000);
-
-    }
-
-    public void openSentMailPage() throws InterruptedException {
-        driver.findElement(sentBy).click();
-        Thread.sleep(10*1000);
     }
 
     public DraftMailPage openDraftMailPage(WebDriver driver) throws InterruptedException {
