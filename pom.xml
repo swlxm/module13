@@ -83,12 +83,6 @@
       <version>5.0.7</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.epam.reportportal/logger-java-log4j -->
-    <dependency>
-      <groupId>com.epam.reportportal</groupId>
-      <artifactId>logger-java-log4j</artifactId>
-      <version>5.0.3</version>
-    </dependency>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -100,6 +94,12 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
       <version>4.5.13</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.epam.reportportal/logger-java-logback -->
+    <dependency>
+      <groupId>com.epam.reportportal</groupId>
+      <artifactId>logger-java-logback</artifactId>
+      <version>5.0.3</version>
     </dependency>
   </dependencies>
 
@@ -185,7 +185,7 @@
     <profile>
       <id>all-test</id>
       <properties>
-        <testngXmlFile>src/test/resources/debug.xml</testngXmlFile>
+        <testngXmlFile>src/test/resources/alltest.xml</testngXmlFile>
       </properties>
     </profile>
   </profiles>

@@ -6,7 +6,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -17,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ListenerImpl implements ITestListener {
 
-    private Logger logger = LoggerFactory.getLogger(ListenerImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ListenerImpl.class);
 
     @Override
     public void onTestFailure(ITestResult result) {
@@ -26,10 +25,12 @@ public class ListenerImpl implements ITestListener {
 
     private void saveScreenshot() {
         try {
+            String timestamp = getTimestamp();
             File screen = ((TakesScreenshot)DriverSingleton.getDriver("", "")).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screen, new File(".//target/screenshots/" + getTimestamp() + ".png"));
+            FileUtils.copyFile(screen, new File(".//target/screenshots/" + timestamp + ".png"));
+            log.info("Screenshot file //target/screenshots/{}.png was saved", timestamp);
         } catch (IOException e) {
-            logger.error("Failed to take screen shot: " + e.getLocalizedMessage());
+            log.error("Failed to take screen shot: {}", e.getLocalizedMessage());
         }
     }
 

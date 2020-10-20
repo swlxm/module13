@@ -2,9 +2,11 @@ package com.epam.java.selenium.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DraftMailPage extends MailPage {
-
+    private static final Logger log = LoggerFactory.getLogger(DraftMailPage.class);
     private By sendBy = By.xpath("//div[text()='Send']");
     private By discardBy = By.xpath("//div[text()='Discard drafts']");
 
@@ -16,7 +18,7 @@ public class DraftMailPage extends MailPage {
         element.click();
         driver.findElement(sendBy).click();
         Thread.sleep(10*1000);
-
+        log.info("Sent a new mail.");
     }
 
     public void discardMail(WebElement element) throws InterruptedException {
@@ -33,6 +35,7 @@ public class DraftMailPage extends MailPage {
                 "setTimeout(function(){discardBtn.setAttribute('style', original_style);}, 3000);", discardBtn);
         action.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         Thread.sleep(1000);
+        log.info("Discarded mail.");
     }
 
 }
