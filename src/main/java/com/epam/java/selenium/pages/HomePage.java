@@ -15,7 +15,7 @@ public class HomePage {
     private static final Logger log = LoggerFactory.getLogger(HomePage.class);
     protected static WebDriver driver;
 
-    private By composeBy = By.xpath("//div[text()='Compose']");
+    private By composeBy = By.xpath("//div[text()='Compose1']");
     private By toBy = By.name("to");
     private By subjectBy = By.name("subjectbox");
     private By bodyBy = By.xpath("//div[@aria-label='Message Body']");

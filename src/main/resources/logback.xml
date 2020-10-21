@@ -19,6 +19,12 @@
         </encoder>
     </appender>
 
+    <appender name="ReportPortalAppender" class="com.epam.reportportal.logback.appender.ReportPortalAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <logger name="com.pg.cn.integration.common.utils.HttpUtils" level="debug" additivity="true">
         <appender-ref ref="FILE"/>
     </logger>
@@ -26,5 +32,6 @@
     <root level="INFO">
         <appender-ref ref="Console" />
         <appender-ref ref="FILE" />
+        <appender-ref ref="ReportPortalAppender" />
     </root>
 </configuration>

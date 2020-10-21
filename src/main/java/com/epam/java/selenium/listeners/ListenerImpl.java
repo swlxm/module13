@@ -28,7 +28,9 @@ public class ListenerImpl implements ITestListener {
             String timestamp = getTimestamp();
             File screen = ((TakesScreenshot)DriverSingleton.getDriver("", "")).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screen, new File(".//target/screenshots/" + timestamp + ".png"));
-            log.info("Screenshot file //target/screenshots/{}.png was saved", timestamp);
+            String path = new File("target/screenshots/" + timestamp + ".png").getAbsolutePath();
+            log.debug(path);
+            log.info("RP_MESSAGE#FILE#{}#{}", path, "Screenshot file " + path + " was saved");
         } catch (IOException e) {
             log.error("Failed to take screen shot: {}", e.getLocalizedMessage());
         }

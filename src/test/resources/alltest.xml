@@ -12,8 +12,8 @@
     <test name="Training">
         <classes>
             <class name="com.epam.java.selenium.tests.NewMailTest"/>
-            <class name="com.epam.java.selenium.tests.DeleteMailTest"/>
-            <class name="com.epam.java.selenium.tests.DiscardMailTest"/>
+            <!--<class name="com.epam.java.selenium.tests.DeleteMailTest"/>-->
+            <!--<class name="com.epam.java.selenium.tests.DiscardMailTest"/>-->
         </classes>
     </test>
 </suite>
